@@ -4,12 +4,16 @@ import JHW_Authorization.askovorodko.exception.InvalidCredentials;
 import JHW_Authorization.askovorodko.exception.UnauthorizedUser;
 import JHW_Authorization.askovorodko.model.Authorities;
 import JHW_Authorization.askovorodko.repository.UserRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class AuthorizationService {
-    UserRepository userRepository;
-
+    private final UserRepository userRepository;
+    public AuthorizationService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
     public List<Authorities> getAuthorities(String user, String password) {
         if (isEmpty(user) || isEmpty(password)) {
             throw new InvalidCredentials("User name or password is empty");
