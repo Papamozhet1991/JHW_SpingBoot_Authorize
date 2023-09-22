@@ -8,6 +8,7 @@ public class AskovorodkoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AskovorodkoApplication.class, args);
+
 	}
 
 }
